@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.row{
+  width: 98%;
+  margin: 0 auto;
+  max-width: 1400px;
+  position: relative;
+}
+
+section.box{
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul,li{
+  list-style: none;
+  padding-left: 0;
+}
+
+.box{
+  display: flex;
+}
+
+h3{
+  margin-bottom: 15px;
+}
+.preloader{
+  width: 32px;
+  height: 32px;
+}
