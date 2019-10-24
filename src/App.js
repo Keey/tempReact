@@ -17,7 +17,7 @@ export default () => {
                     <Aside/>
                     <article>
                         <Route path='/article/:userId?' render={ ()=> <ProfileContainer />}/>
-                        <Route path='/dialogs' render={ ()=> <Dialogs/>}/>
+                        <Route path='/dialogs' render={ ()=> <Dialogs />}/>
                         <Route path='/users' render={ ()=> <UsersContainer />}/>
                     </article>
                 </section>

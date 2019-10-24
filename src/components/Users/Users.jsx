@@ -3,7 +3,7 @@ import s from "./users.module.css";
 import userPhoto from "../../assets/img/user_def.png";
 import Preloader from "../Preloader/Preloader";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
+
 import {userAPI} from "../../api/api";
 
 let Users = (props) => {
@@ -17,6 +17,7 @@ let Users = (props) => {
     }
 
     return(
+
         <div className={s.userWrap}>
             <h2>Users</h2>
             {props.isFetching ? <Preloader/> : null }
@@ -33,21 +34,17 @@ let Users = (props) => {
                             <NavLink to={'/article/' + u.id}> <img src={u.photos.small != null ? u.photos.small : userPhoto} alt=""/></NavLink>
                         </figure>
                         {u.followed
-                            ? <button className='unfollowed' onClick={() => {
-                                userAPI.unfollowUser(u.id).then(response => {
-                                        if(response.data.resultCode === 0 ){
-                                            props.unfollow(u.id)
-                                        }
-                                    });
-                            }}>Unfollow</button>
-                            : <button className='followed' onClick={() => {
-                                userAPI.unfollowUser(u.id).then(response => {
-                                        if(response.data.resultCode === 0 ){
-                                            props.follow(u.id)
-                                        }
-                                    });
+                            ? <button disabled={props.toggleInFollowing.some(id => id === u.id)} className='unfollowed' onClick={() => {
 
-                            }}>Follow</button>
+                                props.unfollowUser(u.id);
+                            }
+
+                            }>Unfollow</button>
+                            : <button disabled={props.toggleInFollowing.some(id => id === u.id)} className='followed'
+                                      onClick={() => {
+                                          props.followUser(u.id);
+                            }
+                                      }>Follow</button>
                         }
                     </div>
                     <div className={'box ' + s.userWrapInfo}>

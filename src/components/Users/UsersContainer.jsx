@@ -2,12 +2,7 @@ import React from 'react';
 import UsersAPIComponent from "./UserAPIComponent";
 import {connect} from "react-redux";
 import {
-    follow,
-    setUsers,
-    unfollow,
-    setCurrentPage,
-    setTotalUsersCount,
-    setisFetching
+    getUsers, followUser, unfollowUser, pageNavigator
 } from "../../redux/usersReduce";
 
 let mapStateToProps = (state) => {
@@ -17,8 +12,9 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.userPage.totalUsersCount,
         currentPage: state.userPage.currentPage,
         isFetching: state.userPage.isFetching,
+        toggleInFollowing: state.userPage.toggleInFollowing,
     }
 };
 
 
-export default connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setisFetching })(UsersAPIComponent);
+export default connect(mapStateToProps, {followUser, unfollowUser, getUsers, pageNavigator })(UsersAPIComponent);
