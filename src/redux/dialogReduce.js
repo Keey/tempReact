@@ -12,7 +12,7 @@ let initState = {
         },
         {id: 4, name: 'Dimych', message: "HI!"}
     ],
-    newMessage : "Enter New Message"
+    newMessage : "Enter New Message",
 }
 
 const dialogReduce = (state = initState, action) => {
@@ -24,10 +24,9 @@ const dialogReduce = (state = initState, action) => {
                 newMessage: action.body
             };
         case ADD_MESSAGE_STATE:
-            let body = state.newMessage;
+            let body = action.addNewMessage;
             return {
                 ...state,
-                newMessage:'',
                 dialogsDate:[...state.dialogsDate, {id: 5, name: 'Mark', message:body}]
             };
 
@@ -37,7 +36,8 @@ const dialogReduce = (state = initState, action) => {
 
 }
 
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE_STATE});
+export const addMessageActionCreator = (addNewMessage) => ({type: ADD_MESSAGE_STATE, addNewMessage});
+
 export const updateMessageActionCreator = (text) => ({type: ON_MESSAGE_CHANGE, body: text});
 
 export default dialogReduce;

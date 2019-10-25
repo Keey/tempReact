@@ -1,10 +1,9 @@
 import React from "react";
 import './Article.scss'
 import Preloader from "../Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 export default (props) => {
-
-
     if (!props.profile){
         return <Preloader />
     }
@@ -15,6 +14,7 @@ export default (props) => {
                     <img src={props.profile.photos.large} alt=""/>
                 </figure>
                 <div>
+                    <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                     <h2>{props.profile.fullName.toUpperCase()}</h2>
                     <ul>
                         <li>About Me: <strong>{props.profile.aboutMe}</strong></li>

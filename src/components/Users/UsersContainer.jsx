@@ -4,6 +4,9 @@ import {connect} from "react-redux";
 import {
     getUsers, followUser, unfollowUser, pageNavigator
 } from "../../redux/usersReduce";
+import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
+import {compose} from "redux";
+
 
 let mapStateToProps = (state) => {
     return {
@@ -16,5 +19,7 @@ let mapStateToProps = (state) => {
     }
 };
 
-
-export default connect(mapStateToProps, {followUser, unfollowUser, getUsers, pageNavigator })(UsersAPIComponent);
+export default compose(
+    connect(mapStateToProps, {followUser, unfollowUser, getUsers, pageNavigator }),
+    WithAuthRedirect
+)(UsersAPIComponent)

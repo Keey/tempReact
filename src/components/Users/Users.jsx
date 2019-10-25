@@ -2,12 +2,10 @@ import React from 'react';
 import s from "./users.module.css";
 import userPhoto from "../../assets/img/user_def.png";
 import Preloader from "../Preloader/Preloader";
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 
-import {userAPI} from "../../api/api";
 
 let Users = (props) => {
-
     let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     let pages = [];
@@ -16,8 +14,9 @@ let Users = (props) => {
         pages.push(i);
     }
 
-    return(
+    if (!props.isAuth) return <Redirect to={"/login"} />;
 
+    return(
         <div className={s.userWrap}>
             <h2>Users</h2>
             {props.isFetching ? <Preloader/> : null }

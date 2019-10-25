@@ -7,21 +7,28 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Article/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 export default () => {
 
     return (
             <main className="row">
+
                 <HeaderContainer />
+
                 <section className="box">
+
                     <Aside/>
+
                     <article>
                         <Route path='/article/:userId?' render={ ()=> <ProfileContainer />}/>
                         <Route path='/dialogs' render={ ()=> <Dialogs />}/>
                         <Route path='/users' render={ ()=> <UsersContainer />}/>
+
+                        <Route path='/login' render={ ()=> <Login />}/>
+
                     </article>
                 </section>
-
                 <Footer/>
             </main>
         );
