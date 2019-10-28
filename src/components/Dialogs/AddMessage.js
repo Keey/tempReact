@@ -4,6 +4,8 @@ import Massage from "./Message";
 import DialogItem from "./DialogItem";
 import {Redirect} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
+import {Textarea} from "../common/FormControl/FormControls";
+import {maxLengthCreator, required} from "../../utils/validation/valid";
 
 export default (props) => {
     // debugger
@@ -45,26 +47,18 @@ export default (props) => {
 }
 
 
+let maxLenght = maxLengthCreator(100);
 const dialogForm = (props) => {
     return (
         <div className={s.add_message_button}>
             <form onSubmit={props.handleSubmit}>
 
                 <h3>Message</h3>
-
-                {/*<textarea onChange={onMessageChange} ref={addMessageBtn} value={props.newMessage}/>*/}
-
-                {/*<button onClick={sendMessage}>Send Message</button>*/}
-
-
-                <Field component="textarea" name="addNewMessage" type="addNewMessage" placeholder="Enter Post" />
+                <Field component={Textarea}  validate={[required,maxLenght]} name="addNewMessage" type="addNewMessage" placeholder="Enter Post" />
                 <button>Add Post</button>
-
             </form>
         </div>
     )
 }
 
-const PostDialog = reduxForm({
-    form: 'dialogPost'
-})(dialogForm)
+const PostDialog = reduxForm({form: 'dialogPost'})(dialogForm)

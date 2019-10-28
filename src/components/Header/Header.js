@@ -1,6 +1,8 @@
 import React from 'react';
 import './header.scss';
 import {NavLink} from "react-router-dom";
+import {logout} from "../../redux/authReducer";
+import {authAPI} from "../../api/api";
 
 export default (props) => {
     return (
@@ -10,7 +12,9 @@ export default (props) => {
             </a>
 
             <div className={'loginBlock'}>
-                {props.isAuth ?  props.login  : <NavLink to={'/'}>Login</NavLink>}
+                {props.isAuth
+                    ? <div> { props.login } <button onClick={authAPI.logout()} >Log Out </button></div>
+                    : <NavLink to={'/login'}>Login</NavLink>}
             </div>
 
         </header>
