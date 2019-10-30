@@ -9,11 +9,9 @@ import {Provider} from "react-redux"
 //import {addPostState,updatePostText,updateMessageText,addMessageState,subscribe} from "./state";
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Provider store={store}>
+
             <App/>
-        </Provider>
-    </BrowserRouter>, document.getElementById('root')
+       , document.getElementById('root')
 );
 
 

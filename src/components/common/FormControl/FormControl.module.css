@@ -1,2 +1,6 @@
 .error textarea{border: 1px solid red }
 .error input{border: 1px solid red }
+
+.summary_error{
+    color: red;
+}

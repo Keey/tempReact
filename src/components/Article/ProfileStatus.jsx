@@ -24,6 +24,7 @@ class ProfileStatus extends React.Component {
     onStatusChange = (e) => {
         this.setState({status:e.currentTarget.value} )
     }
+
     componentDidUpdate(prevProps, prevState) {
         // debugger
         if( prevProps.status !== this.props.status ){
@@ -31,8 +32,8 @@ class ProfileStatus extends React.Component {
                 status: this.props.status
             })
         }
-
     }
+
     render() {
         return (
             <div>
@@ -45,6 +46,7 @@ class ProfileStatus extends React.Component {
             </div>
         )
     }
+
 }
 
 export default ProfileStatus;

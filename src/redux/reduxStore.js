@@ -6,6 +6,7 @@ import asideReduce from "./asideReduce";
 import usersReduce, {getUsers} from "./usersReduce";
 import authReduce from "./authReducer";
 import { reducer as formReducer } from 'redux-form'
+import appReducer from "./appReducer";
 
 let redusers = combineReducers({
     article : articleReduce,
@@ -13,7 +14,8 @@ let redusers = combineReducers({
     aside : asideReduce,
     userPage : usersReduce,
     authReduce : authReduce,
-    form: formReducer
+    form: formReducer,
+    app: appReducer
 })
 
 let store = createStore(redusers, applyMiddleware(thunkMiddleware));

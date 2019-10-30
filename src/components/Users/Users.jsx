@@ -20,6 +20,7 @@ let Users = (props) => {
         <div className={s.userWrap}>
             <h2>Users</h2>
             {props.isFetching ? <Preloader/> : null }
+
             <div className={s.pagination}>
                 {pages.map( p => {
                     return <span className={ props.currentPage === p && s.selectedPage}

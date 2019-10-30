@@ -2,7 +2,6 @@ import React from "react";
 import './Article.scss'
 import UserInfo from "./UserInfo";
 import PostsContainer from "./PostsContainer";
-import {updateStatus} from "../../redux/articleReduce";
 
 export default (props) => {
     return (

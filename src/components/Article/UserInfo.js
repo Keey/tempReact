@@ -2,6 +2,7 @@ import React from "react";
 import './Article.scss'
 import Preloader from "../Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 export default (props) => {
     if (!props.profile){
@@ -14,7 +15,11 @@ export default (props) => {
                     <img src={props.profile.photos.large} alt=""/>
                 </figure>
                 <div>
-                    <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                    {/*<ProfileStatus status={props.status} updateStatus={props.updateStatus}/>*/}
+                    {/*---hooks---*/}
+
+                    <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+
                     <h2>{props.profile.fullName.toUpperCase()}</h2>
                     <ul>
                         <li>About Me: <strong>{props.profile.aboutMe}</strong></li>

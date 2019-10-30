@@ -19,6 +19,8 @@ let mapStateToProps = (state) => {
     }
 };
 
+
+
 export default compose(
     connect(mapStateToProps, {followUser, unfollowUser, getUsers, pageNavigator }),
     WithAuthRedirect

@@ -5,6 +5,7 @@ import {required} from "../../utils/validation/valid";
 import {login} from "../../redux/authReducer";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
+import s from "../common/FormControl/FormControl.module.css";
 
 const LoginForm = (props) => {
 
@@ -23,6 +24,8 @@ const LoginForm = (props) => {
                 type="checkbox"
             />Remember me</label>
         </div>
+        {props.error ? <div className={s.summary_error}> {props.error} </div>
+            : ''}
         <div>
             <button>Login</button>
         </div>
@@ -39,7 +42,7 @@ const Login = (props) => {
     const onSubmit = (formData) => {
         props.login(formData.Email,formData.Password,formData.rememberMe);
         console.log(formData.Email);
-        debugger
+        // debugger
     }
 
     if(props.isAuth){
